@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useLoanContext } from "@/context/LoanContext";
 import { LoanApplication, RiskLevel } from "@/types/loan";
@@ -39,6 +38,16 @@ const LoanDashboard = () => {
   const [riskFilter, setRiskFilter] = useState<string>("all");
   const [sortField, setSortField] = useState<keyof LoanApplication>("submissionDate");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("desc");
+
+  // Handle sort function
+  const handleSort = (field: keyof LoanApplication) => {
+    if (field === sortField) {
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+    } else {
+      setSortField(field);
+      setSortDirection("desc");
+    }
+  };
 
   // Filter and sort loans
   const filteredLoans = loans.filter((loan) => {
@@ -177,7 +186,11 @@ const LoanDashboard = () => {
                           </TableCell>
                           <TableCell>{loan.creditScore}</TableCell>
                           <TableCell>{loan.loanPurpose}</TableCell>
-                          <TableCell>{loan.riskScore}</TableCell>
+                          <TableCell className="font-semibold">
+                            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-fintech-100 to-fintech-200 text-fintech-800">
+                              {loan.riskScore}
+                            </div>
+                          </TableCell>
                           <TableCell>
                             <Badge 
                               variant={getRiskBadgeVariant(loan.riskLevel as RiskLevel)}
@@ -197,6 +210,7 @@ const LoanDashboard = () => {
                 </Table>
               </div>
             </TabsContent>
+            
             
             <TabsContent value="recent">
               <div className="border rounded-md overflow-auto border-fintech-200">
@@ -249,6 +263,7 @@ const LoanDashboard = () => {
                 </Table>
               </div>
             </TabsContent>
+            
             
             <TabsContent value="high-risk">
               <div className="border rounded-md overflow-auto border-fintech-200">

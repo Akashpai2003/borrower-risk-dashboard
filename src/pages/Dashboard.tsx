@@ -5,13 +5,13 @@ import LoanDashboard from "@/components/LoanDashboard";
 
 const Dashboard = () => {
   return (
-    <div className="container mx-auto py-6 space-y-6">
-      <div className="flex justify-between items-center p-6 bg-gradient-to-r from-fintech-600 to-fintech-800 rounded-lg shadow-lg text-white mb-8">
+    <div className="container mx-auto py-4 space-y-6">
+      <div className="flex justify-between items-center p-6 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg shadow-lg text-white mb-8">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Loan Officer Dashboard</h1>
-          <p className="text-fintech-100">Monitor and analyze loan applications</p>
+          <p className="text-purple-100">Monitor and analyze loan applications</p>
         </div>
-        <Button asChild className="bg-white text-fintech-800 hover:bg-fintech-100">
+        <Button asChild className="bg-white text-indigo-800 hover:bg-purple-100">
           <Link to="/form">New Application</Link>
         </Button>
       </div>
