@@ -13,6 +13,7 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import Navigation from "./components/Navigation";
 import LoanCalculator from "./pages/LoanCalculator";
+import Chatbot from "./pages/Chatbot";
 
 // Create QueryClient inside the component to ensure proper React context
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
                   <Route path="/form" element={<Form />} />
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/calculator" element={<LoanCalculator />} />
+                  <Route path="/chatbot" element={<Chatbot />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </div>

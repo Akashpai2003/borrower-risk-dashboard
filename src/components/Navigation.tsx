@@ -1,79 +1,44 @@
 
-import { Link, useLocation } from "react-router-dom";
-import { 
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle
-} from "@/components/ui/navigation-menu";
-import { 
-  Calculator, 
-  Home, 
-  FileText, 
-  LayoutDashboard 
-} from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Link, useLocation } from 'react-router-dom';
+import { HomeIcon, FileTextIcon, BarChartIcon, CalculatorIcon, MessageCircleIcon } from 'lucide-react';
 
 const Navigation = () => {
   const location = useLocation();
   
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
+  const navigation = [
+    { name: 'Home', href: '/', icon: HomeIcon },
+    { name: 'New Application', href: '/form', icon: FileTextIcon },
+    { name: 'Dashboard', href: '/dashboard', icon: BarChartIcon },
+    { name: 'Loan Calculator', href: '/calculator', icon: CalculatorIcon },
+    { name: 'AI Assistant', href: '/chatbot', icon: MessageCircleIcon },
+  ];
 
   return (
-    <div className="sticky top-0 z-50 w-full border-b border-fintech-200 bg-white">
-      <div className="container flex h-16 items-center px-4">
-        <div className="mr-4 flex items-center space-x-2">
-          <Calculator className="h-6 w-6 text-fintech-600" />
-          <span className="hidden font-bold text-xl text-fintech-800 sm:inline-block">RiskSense</span>
+    <div className="bg-white shadow-md">
+      <div className="container mx-auto">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center">
+              <span className="text-xl font-bold text-indigo-600">LoanRisk</span>
+            </Link>
+          </div>
+          <div className="flex space-x-1 md:space-x-4">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={`inline-flex items-center px-2 md:px-3 py-2 text-sm font-medium rounded-md ${
+                  location.pathname === item.href
+                    ? 'text-white bg-indigo-600'
+                    : 'text-gray-600 hover:text-indigo-600 hover:bg-gray-100'
+                }`}
+              >
+                <item.icon className="h-4 w-4 mr-1" />
+                <span className="hidden md:inline">{item.name}</span>
+              </Link>
+            ))}
+          </div>
         </div>
-        
-        <NavigationMenu className="mx-auto">
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <Link to="/form">
-                <div className={cn(
-                  navigationMenuTriggerStyle(),
-                  "flex items-center gap-2",
-                  isActive("/form") && "bg-fintech-100 text-fintech-800"
-                )}>
-                  <FileText className="h-4 w-4" />
-                  <span>New Application</span>
-                </div>
-              </Link>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
-              <Link to="/dashboard">
-                <div className={cn(
-                  navigationMenuTriggerStyle(),
-                  "flex items-center gap-2",
-                  isActive("/dashboard") && "bg-fintech-100 text-fintech-800"
-                )}>
-                  <LayoutDashboard className="h-4 w-4" />
-                  <span>Dashboard</span>
-                </div>
-              </Link>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
-              <Link to="/calculator">
-                <div className={cn(
-                  navigationMenuTriggerStyle(),
-                  "flex items-center gap-2",
-                  isActive("/calculator") && "bg-fintech-100 text-fintech-800"
-                )}>
-                  <Calculator className="h-4 w-4" />
-                  <span>EMI Calculator</span>
-                </div>
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
       </div>
     </div>
   );
