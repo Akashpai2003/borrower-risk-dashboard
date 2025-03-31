@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 210 100% 45%;
+    --primary: 200 97% 42%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -33,7 +33,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   .dark {
@@ -74,5 +74,23 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .fintech-input {
+    @apply border-gray-300 focus:border-fintech-400 focus-visible:ring-fintech-400 rounded-lg;
+  }
+  
+  .fintech-button-primary {
+    @apply bg-fintech-900 hover:bg-fintech-950 text-white rounded-xl;
+  }
+  
+  .fintech-button-secondary {
+    @apply border-fintech-400 text-fintech-900 hover:bg-fintech-50 rounded-xl;
+  }
+  
+  .fintech-card {
+    @apply border-gray-200 shadow-sm rounded-xl overflow-hidden;
   }
 }

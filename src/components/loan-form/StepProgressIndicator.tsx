@@ -1,10 +1,9 @@
 
 import React from "react";
-
-type Step = "personal" | "financial" | "loan" | "additional";
+import { FormStep } from "./types";
 
 interface StepProgressIndicatorProps {
-  currentStep: Step;
+  currentStep: FormStep;
 }
 
 const StepProgressIndicator = ({ currentStep }: StepProgressIndicatorProps) => {
@@ -29,12 +28,12 @@ const StepProgressIndicator = ({ currentStep }: StepProgressIndicatorProps) => {
           <div 
             key={step.id} 
             className={`flex-1 text-center ${
-              currentStep === step.id ? "text-[#0d3d62] font-medium" : "text-gray-500"
+              currentStep === step.id ? "text-fintech-900 font-medium" : "text-gray-500"
             }`}
           >
             <div 
               className={`w-10 h-10 mx-auto rounded-full flex items-center justify-center ${
-                currentStep === step.id ? "bg-[#e6f7ff] text-[#0d3d62]" : "bg-gray-100 text-gray-500"
+                currentStep === step.id ? "bg-fintech-100 text-fintech-900" : "bg-gray-100 text-gray-500"
               }`}
             >
               {step.number}
@@ -44,9 +43,9 @@ const StepProgressIndicator = ({ currentStep }: StepProgressIndicatorProps) => {
         ))}
         
         {/* Progress bar */}
-        <div className="absolute top-5 left-0 w-full h-1 bg-gray-200 -z-10">
+        <div className="absolute top-5 left-0 w-full h-1 bg-gray-200 -z-10 rounded-full">
           <div 
-            className="h-full bg-[#3ca3d9] transition-all duration-300"
+            className="h-full bg-fintech-400 transition-all duration-300 rounded-full"
             style={{ width: getProgressWidth() }}
           ></div>
         </div>
