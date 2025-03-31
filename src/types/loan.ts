@@ -44,4 +44,5 @@ export interface LoanApplication {
   assetValue?: number;
   liabilityValue?: number;
   notes?: string;
+  landmark?: string;
 }
