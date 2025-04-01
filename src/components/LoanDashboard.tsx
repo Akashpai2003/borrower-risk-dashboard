@@ -149,7 +149,7 @@ const LoanDashboard = () => {
           </div>
 
           <Tabs defaultValue="all" className="mt-4">
-            <TabsList className="mb-4 bg-fintech-700 p-1 rounded-lg">
+            <TabsList className="mb-4 bg-fintech-800 p-1 rounded-lg">
               <TabsTrigger value="all" className="data-[state=active]:bg-fintech-900 text-white rounded-md">All Applications</TabsTrigger>
               <TabsTrigger value="recent" className="data-[state=active]:bg-fintech-900 text-white rounded-md">Recent</TabsTrigger>
               <TabsTrigger value="high-risk" className="data-[state=active]:bg-fintech-900 text-white rounded-md">High Risk</TabsTrigger>
@@ -164,18 +164,18 @@ const LoanDashboard = () => {
                       <TableHead className="w-[150px] cursor-pointer text-white" onClick={() => handleSort('loanId')}>
                         Loan ID {sortField === 'loanId' && (sortDirection === 'asc' ? '↑' : '↓')}
                       </TableHead>
-                      <TableHead className="cursor-pointer text-white" onClick={() => handleSort('loanAmount')}>
+                      <TableHead className="cursor-pointer text-white text-center" onClick={() => handleSort('loanAmount')}>
                         Amount {sortField === 'loanAmount' && (sortDirection === 'asc' ? '↑' : '↓')}
                       </TableHead>
-                      <TableHead className="cursor-pointer text-white" onClick={() => handleSort('creditScore')}>
+                      <TableHead className="cursor-pointer text-white text-center" onClick={() => handleSort('creditScore')}>
                         Credit Score {sortField === 'creditScore' && (sortDirection === 'asc' ? '↑' : '↓')}
                       </TableHead>
-                      <TableHead className="text-white">Purpose</TableHead>
-                      <TableHead className="cursor-pointer text-white" onClick={() => handleSort('riskScore')}>
+                      <TableHead className="text-white text-center">Purpose</TableHead>
+                      <TableHead className="cursor-pointer text-white text-center" onClick={() => handleSort('riskScore')}>
                         Risk Score {sortField === 'riskScore' && (sortDirection === 'asc' ? '↑' : '↓')}
                       </TableHead>
-                      <TableHead className="text-white">Risk Level</TableHead>
-                      <TableHead className="cursor-pointer text-white" onClick={() => handleSort('submissionDate')}>
+                      <TableHead className="text-white text-center">Risk Level</TableHead>
+                      <TableHead className="cursor-pointer text-white text-center" onClick={() => handleSort('submissionDate')}>
                         Date {sortField === 'submissionDate' && (sortDirection === 'asc' ? '↑' : '↓')}
                       </TableHead>
                       <TableHead className="text-right text-white">Action</TableHead>
@@ -213,7 +213,7 @@ const LoanDashboard = () => {
                           </TableCell>
                           <TableCell className="text-center">{formatDate(loan.submissionDate)}</TableCell>
                           <TableCell className="text-right">
-                            <Button variant="outline" size="sm" className="border-fintech-600 hover:bg-fintech-50 rounded-lg">View</Button>
+                            <Button variant="outline" size="sm" className="border-fintech-600 text-fintech-700 hover:bg-fintech-50 hover:text-fintech-800 rounded-lg">View</Button>
                           </TableCell>
                         </TableRow>
                       ))
@@ -223,7 +223,6 @@ const LoanDashboard = () => {
               </div>
             </TabsContent>
             
-            
             <TabsContent value="recent">
               <div className="border rounded-xl overflow-auto border-gray-300 bg-white">
                 <Table>
@@ -231,12 +230,12 @@ const LoanDashboard = () => {
                   <TableHeader className="bg-fintech-800 text-white">
                     <TableRow>
                       <TableHead className="w-[150px] text-white">Loan ID</TableHead>
-                      <TableHead className="text-white">Amount</TableHead>
-                      <TableHead className="text-white">Credit Score</TableHead>
-                      <TableHead className="text-white">Purpose</TableHead>
-                      <TableHead className="text-white">Risk Score</TableHead>
-                      <TableHead className="text-white">Risk Level</TableHead>
-                      <TableHead className="text-white">Date</TableHead>
+                      <TableHead className="text-white text-center">Amount</TableHead>
+                      <TableHead className="text-white text-center">Credit Score</TableHead>
+                      <TableHead className="text-white text-center">Purpose</TableHead>
+                      <TableHead className="text-white text-center">Risk Score</TableHead>
+                      <TableHead className="text-white text-center">Risk Level</TableHead>
+                      <TableHead className="text-white text-center">Date</TableHead>
                       <TableHead className="text-right text-white">Action</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -271,7 +270,7 @@ const LoanDashboard = () => {
                           </TableCell>
                           <TableCell className="text-center">{formatDate(loan.submissionDate)}</TableCell>
                           <TableCell className="text-right">
-                            <Button variant="outline" size="sm" className="border-fintech-600 hover:bg-fintech-50 rounded-lg">View</Button>
+                            <Button variant="outline" size="sm" className="border-fintech-600 text-fintech-700 hover:bg-fintech-50 hover:text-fintech-800 rounded-lg">View</Button>
                           </TableCell>
                         </TableRow>
                       ))}
@@ -280,7 +279,6 @@ const LoanDashboard = () => {
               </div>
             </TabsContent>
             
-            
             <TabsContent value="high-risk">
               <div className="border rounded-xl overflow-auto border-gray-300 bg-white">
                 <Table>
@@ -288,12 +286,12 @@ const LoanDashboard = () => {
                   <TableHeader className="bg-fintech-800 text-white">
                     <TableRow>
                       <TableHead className="w-[150px] text-white">Loan ID</TableHead>
-                      <TableHead className="text-white">Amount</TableHead>
-                      <TableHead className="text-white">Credit Score</TableHead>
-                      <TableHead className="text-white">Purpose</TableHead>
-                      <TableHead className="text-white">Risk Score</TableHead>
-                      <TableHead className="text-white">Risk Level</TableHead>
-                      <TableHead className="text-white">Date</TableHead>
+                      <TableHead className="text-white text-center">Amount</TableHead>
+                      <TableHead className="text-white text-center">Credit Score</TableHead>
+                      <TableHead className="text-white text-center">Purpose</TableHead>
+                      <TableHead className="text-white text-center">Risk Score</TableHead>
+                      <TableHead className="text-white text-center">Risk Level</TableHead>
+                      <TableHead className="text-white text-center">Date</TableHead>
                       <TableHead className="text-right text-white">Action</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -324,7 +322,7 @@ const LoanDashboard = () => {
                           </TableCell>
                           <TableCell className="text-center">{formatDate(loan.submissionDate)}</TableCell>
                           <TableCell className="text-right">
-                            <Button variant="outline" size="sm" className="border-fintech-600 hover:bg-fintech-50 rounded-lg">View</Button>
+                            <Button variant="outline" size="sm" className="border-fintech-600 text-fintech-700 hover:bg-fintech-50 hover:text-fintech-800 rounded-lg">View</Button>
                           </TableCell>
                         </TableRow>
                       ))}

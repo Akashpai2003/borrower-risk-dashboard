@@ -15,11 +15,11 @@ const Form = () => {
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-fintech-50 to-blue-50 dark:from-fintech-950 dark:to-gray-900">
-      <div className="grid grid-cols-1 lg:grid-cols-4 min-h-[calc(100vh-64px)]">
-        {/* Left side - Image (1/4 width) */}
-        <div className="hidden lg:flex bg-fintech-400 relative overflow-hidden rounded-tr-3xl rounded-br-3xl">
+      <div className="grid grid-cols-1 lg:grid-cols-5 min-h-[calc(100vh-64px)]">
+        {/* Left side - Image (1/5 width) */}
+        <div className="hidden lg:flex lg:col-span-1 bg-fintech-800 relative overflow-hidden rounded-tr-3xl rounded-br-3xl">
           <img 
-            src="/lovable-uploads/eb54b5e0-7a6e-44df-919c-82686307a611.png" 
+            src="/lovable-uploads/a268d43b-9a2b-4978-bf5d-f7f9e2d37dc8.png" 
             alt="Loan application" 
             className="object-cover w-full h-full opacity-90 hover:scale-105 transition-transform duration-700"
           />
@@ -31,8 +31,8 @@ const Form = () => {
           </div>
         </div>
         
-        {/* Right side - Form (3/4 width) */}
-        <div className="lg:col-span-3 flex flex-col">
+        {/* Right side - Form (4/5 width) */}
+        <div className="lg:col-span-4 flex flex-col">
           <div className="bg-fintech-800 p-6 text-white rounded-tl-xl">
             <div className="flex justify-between items-center max-w-3xl mx-auto w-full">
               <div>
@@ -49,7 +49,7 @@ const Form = () => {
             </div>
           </div>
           
-          <div className="flex-1 overflow-auto p-6">
+          <div className="flex-1 overflow-auto p-6 lg:pl-12">
             <div className="max-w-3xl mx-auto">
               <LoanApplicationForm />
             </div>
@@ -62,7 +62,7 @@ const Form = () => {
         <Button 
           onClick={toggleChatbot} 
           size="icon" 
-          className={`h-12 w-12 rounded-xl shadow-lg ${showChatbot ? 'bg-red-500 hover:bg-red-600' : 'bg-fintech-600 hover:bg-fintech-700'}`}
+          className={`h-12 w-12 rounded-xl shadow-lg ${showChatbot ? 'bg-red-500 hover:bg-red-600' : 'bg-fintech-800 hover:bg-fintech-900'}`}
         >
           {showChatbot ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
         </Button>

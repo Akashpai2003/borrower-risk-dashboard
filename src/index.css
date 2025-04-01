@@ -83,11 +83,11 @@
   }
   
   .fintech-button-primary {
-    @apply bg-fintech-900 hover:bg-fintech-950 text-white rounded-md;
+    @apply bg-fintech-800 hover:bg-fintech-900 text-white rounded-md;
   }
   
   .fintech-button-secondary {
-    @apply border-fintech-400 text-fintech-900 hover:bg-fintech-50 rounded-md;
+    @apply border-fintech-400 text-fintech-800 hover:bg-fintech-50 rounded-md;
   }
   
   .fintech-card {
@@ -107,22 +107,22 @@
   }
   
   .risk-score-highlight {
-    @apply flex items-center justify-center w-24 h-24 rounded-md text-3xl font-bold shadow-md border-2;
+    @apply flex items-center justify-center w-16 h-16 rounded-md text-2xl font-bold shadow-md border-2;
   }
   
   .risk-score-low {
-    @apply bg-green-100 text-green-700 border-green-500;
+    @apply bg-green-100 text-green-800 border-green-600;
   }
   
   .risk-score-medium {
-    @apply bg-yellow-100 text-yellow-700 border-yellow-500;
+    @apply bg-yellow-100 text-yellow-800 border-yellow-600;
   }
   
   .risk-score-high {
-    @apply bg-orange-100 text-orange-700 border-orange-500;
+    @apply bg-orange-100 text-orange-800 border-orange-600;
   }
   
   .risk-score-critical {
-    @apply bg-red-100 text-red-700 border-red-500;
+    @apply bg-red-100 text-red-800 border-red-600;
   }
 }

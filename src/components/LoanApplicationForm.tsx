@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoanApplication } from "@/types/loan";
@@ -100,7 +101,7 @@ const LoanApplicationForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Card className="border-gray-200 shadow-md rounded-lg">
+      <Card className="border-gray-200 shadow-md rounded-xl">
         <CardContent className="p-0">
           <div className="p-6 pb-2 bg-white dark:bg-gray-800">
             <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Loan Application</h2>
@@ -117,7 +118,6 @@ const LoanApplicationForm = () => {
               formData={formData}
               handleInputChange={handleInputChange}
               handleSelectChange={handleSelectChange}
-              handleSwitchChange={handleSwitchChange}
               nextStep={nextStep}
             />
           )}
@@ -127,7 +127,6 @@ const LoanApplicationForm = () => {
               formData={formData}
               handleInputChange={handleInputChange}
               handleSelectChange={handleSelectChange}
-              handleSwitchChange={handleSwitchChange}
               nextStep={nextStep}
               prevStep={prevStep}
             />
@@ -138,7 +137,6 @@ const LoanApplicationForm = () => {
               formData={formData}
               handleInputChange={handleInputChange}
               handleSelectChange={handleSelectChange}
-              handleSwitchChange={handleSwitchChange}
               nextStep={nextStep}
               prevStep={prevStep}
             />
