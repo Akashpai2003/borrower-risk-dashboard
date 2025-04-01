@@ -18,7 +18,7 @@ const AdditionalInfoStep = ({
   return (
     <div className="px-6 pb-6 space-y-6">
       <div>
-        <h3 className="text-md font-medium mb-4 text-[#0d3d62]">Asset & Liability Information</h3>
+        <h3 className="text-md font-medium mb-4 text-gray-800 dark:text-gray-100">Asset & Liability Information</h3>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="grid gap-2">
             <Label htmlFor="assetValue">Total Asset Value (<IndianRupee className="inline h-3 w-3" />)</Label>
@@ -48,7 +48,7 @@ const AdditionalInfoStep = ({
       </div>
       
       <div>
-        <h3 className="text-md font-medium mb-4 text-[#0d3d62]">Additional Notes</h3>
+        <h3 className="text-md font-medium mb-4 text-gray-800 dark:text-gray-100">Additional Notes</h3>
         <div className="grid gap-4">
           <div className="grid gap-2">
             <Label htmlFor="notes">Notes</Label>
@@ -69,14 +69,14 @@ const AdditionalInfoStep = ({
           type="button" 
           variant="outline" 
           onClick={() => prevStep('additional')}
-          className="border-[#3ca3d9] text-[#0d3d62] hover:bg-[#e6f7ff]"
+          className="border-[#3ca3d9] text-[#0d3d62] hover:bg-[#e6f7ff] rounded-md"
         >
           Previous
         </Button>
         <Button 
           type="submit" 
           disabled={isLoading}
-          className="bg-[#0d3d62] hover:bg-[#0a2e4a]"
+          className="bg-[#0d3d62] hover:bg-[#0a2e4a] rounded-md"
         >
           {isLoading ? (
             <span className="flex items-center">

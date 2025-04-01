@@ -13,15 +13,7 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, IndianRupee } from "lucide-react";
-
-interface LoanDetailsStepProps {
-  formData: any;
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  handleSelectChange: (name: string, value: string) => void;
-  handleSwitchChange: (name: string, checked: boolean) => void;
-  nextStep: (current: string) => void;
-  prevStep: (current: string) => void;
-}
+import { LoanDetailsStepProps } from "./types";
 
 const LoanDetailsStep = ({ 
   formData, 
@@ -34,7 +26,7 @@ const LoanDetailsStep = ({
   return (
     <div className="px-6 pb-6 space-y-6">
       <div>
-        <h3 className="text-md font-medium mb-4 text-[#0d3d62]">Loan Request</h3>
+        <h3 className="text-md font-medium mb-4 text-gray-800 dark:text-gray-100">Loan Request</h3>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="grid gap-2">
             <Label htmlFor="loanId">Loan ID</Label>
@@ -122,7 +114,7 @@ const LoanDetailsStep = ({
       </div>
       
       <div>
-        <h3 className="text-md font-medium mb-4 text-[#0d3d62]">Additional Loan Details</h3>
+        <h3 className="text-md font-medium mb-4 text-gray-800 dark:text-gray-100">Additional Loan Details</h3>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="grid gap-2">
             <div className="flex items-center justify-between">
@@ -152,14 +144,14 @@ const LoanDetailsStep = ({
           type="button" 
           variant="outline" 
           onClick={() => prevStep('loan')}
-          className="border-[#3ca3d9] text-[#0d3d62] hover:bg-[#e6f7ff]"
+          className="border-[#3ca3d9] text-[#0d3d62] hover:bg-[#e6f7ff] rounded-md"
         >
           Previous
         </Button>
         <Button 
           type="button" 
           onClick={() => nextStep('loan')}
-          className="bg-[#0d3d62] hover:bg-[#0a2e4a]"
+          className="bg-[#0d3d62] hover:bg-[#0a2e4a] rounded-md"
         >
           Next Step <ChevronRight className="ml-2 h-4 w-4" />
         </Button>

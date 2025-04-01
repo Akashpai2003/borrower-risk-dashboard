@@ -17,7 +17,7 @@ const Form = () => {
     <div className="min-h-screen bg-gradient-to-br from-fintech-50 to-blue-50 dark:from-fintech-950 dark:to-gray-900">
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-64px)]">
         {/* Left side - Image */}
-        <div className="hidden lg:flex bg-fintech-400 relative overflow-hidden rounded-br-xl">
+        <div className="hidden lg:flex bg-fintech-400 relative overflow-hidden rounded-br-lg">
           <img 
             src="/lovable-uploads/eb54b5e0-7a6e-44df-919c-82686307a611.png" 
             alt="Loan application" 
@@ -28,7 +28,7 @@ const Form = () => {
         
         {/* Right side - Form */}
         <div className="flex flex-col">
-          <div className="bg-fintech-900 p-6 text-white glassmorphism">
+          <div className="bg-fintech-800 p-6 text-white">
             <div className="flex justify-between items-center max-w-3xl mx-auto w-full">
               <div>
                 <h1 className="text-2xl font-bold">New Loan Application</h1>
@@ -37,7 +37,7 @@ const Form = () => {
               <Button 
                 asChild 
                 variant="outline" 
-                className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm border border-white/10 rounded-md"
+                className="bg-white/20 hover:bg-white/30 text-white border border-white/10 rounded-md"
               >
                 <Link to="/dashboard">Go to Dashboard</Link>
               </Button>
@@ -57,7 +57,7 @@ const Form = () => {
         <Button 
           onClick={toggleChatbot} 
           size="icon" 
-          className={`h-12 w-12 rounded-full shadow-lg ${showChatbot ? 'bg-red-500 hover:bg-red-600' : 'bg-fintech-600 hover:bg-fintech-700'}`}
+          className={`h-12 w-12 rounded-lg shadow-lg ${showChatbot ? 'bg-red-500 hover:bg-red-600' : 'bg-fintech-600 hover:bg-fintech-700'}`}
         >
           {showChatbot ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
         </Button>
@@ -65,7 +65,7 @@ const Form = () => {
       
       {/* Chatbot Popup */}
       {showChatbot && (
-        <div className="fixed bottom-20 right-6 w-96 h-[500px] z-40 rounded-lg overflow-hidden shadow-2xl border border-fintech-200 glassmorphism">
+        <div className="fixed bottom-20 right-6 w-96 h-[500px] z-40 rounded-lg overflow-hidden shadow-2xl border border-fintech-200 bg-white dark:bg-gray-800">
           <div className="h-full">
             <LoanChatbot popup={true} />
           </div>

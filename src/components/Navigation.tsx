@@ -1,6 +1,6 @@
 
 import { Link, useLocation } from 'react-router-dom';
-import { HomeIcon, FileTextIcon, BarChartIcon, CalculatorIcon, MessageCircleIcon, MoonIcon, SunIcon } from 'lucide-react';
+import { HomeIcon, FileTextIcon, BarChartIcon, CalculatorIcon, MoonIcon, SunIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 
@@ -40,7 +40,7 @@ const Navigation = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 shadow-md glassmorphism dark:glassmorphism-dark">
+    <div className="bg-white dark:bg-gray-900 shadow-md">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -56,7 +56,7 @@ const Navigation = () => {
                 className={`inline-flex items-center px-2 md:px-3 py-2 text-sm font-medium rounded-md ${
                   location.pathname === item.href
                     ? 'text-white bg-fintech-600 dark:bg-fintech-800'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-fintech-600 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-fintech-600 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
               >
                 <item.icon className="h-4 w-4 mr-1" />
@@ -68,7 +68,7 @@ const Navigation = () => {
               onClick={toggleDarkMode} 
               variant="ghost" 
               size="icon"
-              className="rounded-full ml-2 w-8 h-8"
+              className="rounded-md ml-2 w-8 h-8"
             >
               {darkMode ? (
                 <SunIcon className="h-4 w-4 text-yellow-400" />

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoanApplication } from "@/types/loan";
@@ -101,11 +100,11 @@ const LoanApplicationForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Card className="border-gray-200 shadow-sm">
+      <Card className="border-gray-200 shadow-md rounded-lg">
         <CardContent className="p-0">
-          <div className="p-6 pb-2">
-            <h2 className="text-xl font-semibold text-[#0d3d62]">Loan Application</h2>
-            <p className="text-sm text-gray-500">Enter borrower information to assess loan risk</p>
+          <div className="p-6 pb-2 bg-white dark:bg-gray-800">
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Loan Application</h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Enter borrower information to assess loan risk</p>
           </div>
           
           <div className="px-6 py-4">
