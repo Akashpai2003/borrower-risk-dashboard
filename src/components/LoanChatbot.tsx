@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { SendIcon, LoaderIcon } from "lucide-react";
 import { calculateRiskScore, getRiskLevel } from "@/utils/riskUtils";
+import { EducationType, LoanPurpose, EmploymentType, MaritalStatus } from '@/types/loan';
 
 interface Message {
   id: string;
@@ -14,7 +15,11 @@ interface Message {
   timestamp: Date;
 }
 
-const LoanChatbot = () => {
+interface LoanChatbotProps {
+  popup?: boolean;
+}
+
+const LoanChatbot = ({ popup = false }: LoanChatbotProps) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '0',
@@ -159,12 +164,12 @@ const LoanChatbot = () => {
       interestRate: 10,
       loanTerm: 36,
       dti: 0.35,
-      education: 'Bachelor',
-      employmentType: 'Full-time',
-      maritalStatus: 'Married',
+      education: 'Bachelor' as EducationType,
+      employmentType: 'Full-time' as EmploymentType,
+      maritalStatus: 'Married' as MaritalStatus,
       hasMortgage: false,
       dependents: 1,
-      loanPurpose: 'Personal',
+      loanPurpose: 'Personal' as LoanPurpose,
       hasCoSigner: false,
     };
     
@@ -187,9 +192,9 @@ const LoanChatbot = () => {
   };
 
   return (
-    <Card className="w-full max-w-4xl mx-auto h-[70vh] flex flex-col">
-      <CardHeader className="px-4 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-t-lg">
-        <CardTitle className="text-xl">Loan Assistant</CardTitle>
+    <Card className={`${popup ? 'w-full h-full' : 'w-full max-w-4xl mx-auto h-[70vh]'} flex flex-col glassmorphism`}>
+      <CardHeader className="px-4 py-3 bg-gradient-to-r from-fintech-700 to-fintech-900 text-white rounded-t-lg">
+        <CardTitle className="text-lg">Loan Assistant</CardTitle>
       </CardHeader>
       <CardContent className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((message) => (
@@ -200,8 +205,8 @@ const LoanChatbot = () => {
             <div
               className={`rounded-lg px-4 py-2 max-w-[80%] ${
                 message.sender === 'user'
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-muted'
+                  ? 'bg-fintech-600 text-white'
+                  : 'bg-white/10 border border-white/20'
               }`}
             >
               {message.content}
@@ -210,7 +215,7 @@ const LoanChatbot = () => {
         ))}
         {isLoading && (
           <div className="flex justify-start">
-            <div className="rounded-lg px-4 py-2 bg-muted flex items-center">
+            <div className="rounded-lg px-4 py-2 bg-white/10 border border-white/20 flex items-center">
               <LoaderIcon className="h-4 w-4 mr-2 animate-spin" />
               Thinking...
             </div>
@@ -218,16 +223,16 @@ const LoanChatbot = () => {
         )}
         <div ref={messagesEndRef} />
       </CardContent>
-      <CardFooter className="p-4 border-t">
+      <CardFooter className="p-3 border-t border-white/20">
         <div className="flex w-full items-center space-x-2">
           <Input
             placeholder="Ask a question about loans..."
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="flex-1"
+            className="flex-1 bg-white/10 border-white/20"
           />
-          <Button onClick={handleSendMessage} disabled={isLoading || !inputMessage.trim()}>
+          <Button onClick={handleSendMessage} disabled={isLoading || !inputMessage.trim()} className="rounded-md">
             <SendIcon className="h-4 w-4" />
           </Button>
         </div>

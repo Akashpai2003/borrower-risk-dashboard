@@ -33,7 +33,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
   }
 
   .dark {
@@ -83,14 +83,60 @@
   }
   
   .fintech-button-primary {
-    @apply bg-fintech-900 hover:bg-fintech-950 text-white rounded-xl;
+    @apply bg-fintech-900 hover:bg-fintech-950 text-white rounded-md;
   }
   
   .fintech-button-secondary {
-    @apply border-fintech-400 text-fintech-900 hover:bg-fintech-50 rounded-xl;
+    @apply border-fintech-400 text-fintech-900 hover:bg-fintech-50 rounded-md;
   }
   
   .fintech-card {
     @apply border-gray-200 shadow-sm rounded-xl overflow-hidden;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-lg;
+  }
+  
+  .glass-card-dark {
+    @apply backdrop-blur-md bg-gray-900/30 border border-gray-800/30 shadow-lg;
+  }
+  
+  .gradient-bg-light {
+    @apply bg-gradient-to-r from-fintech-50 to-blue-50;
+  }
+  
+  .gradient-bg-dark {
+    @apply bg-gradient-to-r from-gray-900 to-fintech-950;
+  }
+  
+  .risk-score-highlight {
+    @apply flex items-center justify-center w-16 h-16 rounded-full text-xl font-bold shadow-lg;
+  }
+  
+  .risk-score-low {
+    @apply bg-gradient-to-br from-green-400 to-green-500 text-white;
+  }
+  
+  .risk-score-medium {
+    @apply bg-gradient-to-br from-yellow-400 to-amber-500 text-white;
+  }
+  
+  .risk-score-high {
+    @apply bg-gradient-to-br from-orange-400 to-red-500 text-white;
+  }
+  
+  .risk-score-critical {
+    @apply bg-gradient-to-br from-red-500 to-red-700 text-white;
+  }
+}
+
+@layer utilities {
+  .glassmorphism {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 shadow-xl;
+  }
+  
+  .glassmorphism-dark {
+    @apply backdrop-blur-xl bg-gray-900/30 border border-gray-800/30 shadow-xl;
   }
 }
