@@ -15,29 +15,34 @@ const Form = () => {
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-fintech-50 to-blue-50 dark:from-fintech-950 dark:to-gray-900">
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-64px)]">
-        {/* Left side - Image */}
-        <div className="hidden lg:flex bg-fintech-400 relative overflow-hidden rounded-br-lg">
+      <div className="grid grid-cols-1 lg:grid-cols-4 min-h-[calc(100vh-64px)]">
+        {/* Left side - Image (1/4 width) */}
+        <div className="hidden lg:flex bg-fintech-400 relative overflow-hidden rounded-tr-3xl rounded-br-3xl">
           <img 
             src="/lovable-uploads/eb54b5e0-7a6e-44df-919c-82686307a611.png" 
             alt="Loan application" 
             className="object-cover w-full h-full opacity-90 hover:scale-105 transition-transform duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-fintech-800/40 to-fintech-900/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-fintech-800/60 to-fintech-900/80 flex items-center justify-center">
+            <div className="text-white text-center p-6">
+              <h2 className="text-2xl font-bold mb-2">Apply for a Loan</h2>
+              <p className="text-sm opacity-80">Fast approval process with competitive rates</p>
+            </div>
+          </div>
         </div>
         
-        {/* Right side - Form */}
-        <div className="flex flex-col">
-          <div className="bg-fintech-800 p-6 text-white">
+        {/* Right side - Form (3/4 width) */}
+        <div className="lg:col-span-3 flex flex-col">
+          <div className="bg-fintech-800 p-6 text-white rounded-tl-xl">
             <div className="flex justify-between items-center max-w-3xl mx-auto w-full">
               <div>
-                <h1 className="text-2xl font-bold">New Loan Application</h1>
+                <h1 className="text-2xl font-bold text-white">New Loan Application</h1>
                 <p className="text-sm text-gray-200">Submit a new borrower application for risk assessment</p>
               </div>
               <Button 
                 asChild 
                 variant="outline" 
-                className="bg-white/20 hover:bg-white/30 text-white border border-white/10 rounded-md"
+                className="bg-white/20 hover:bg-white/30 text-white border border-white/10 rounded-xl"
               >
                 <Link to="/dashboard">Go to Dashboard</Link>
               </Button>
@@ -57,7 +62,7 @@ const Form = () => {
         <Button 
           onClick={toggleChatbot} 
           size="icon" 
-          className={`h-12 w-12 rounded-lg shadow-lg ${showChatbot ? 'bg-red-500 hover:bg-red-600' : 'bg-fintech-600 hover:bg-fintech-700'}`}
+          className={`h-12 w-12 rounded-xl shadow-lg ${showChatbot ? 'bg-red-500 hover:bg-red-600' : 'bg-fintech-600 hover:bg-fintech-700'}`}
         >
           {showChatbot ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
         </Button>
@@ -65,7 +70,7 @@ const Form = () => {
       
       {/* Chatbot Popup */}
       {showChatbot && (
-        <div className="fixed bottom-20 right-6 w-96 h-[500px] z-40 rounded-lg overflow-hidden shadow-2xl border border-fintech-200 bg-white dark:bg-gray-800">
+        <div className="fixed bottom-20 right-6 w-96 h-[500px] z-40 rounded-xl overflow-hidden shadow-2xl border border-fintech-200 bg-white dark:bg-gray-800">
           <div className="h-full">
             <LoanChatbot popup={true} />
           </div>

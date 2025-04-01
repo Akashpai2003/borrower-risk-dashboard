@@ -35,6 +35,6 @@ export interface LoanDetailsStepProps extends FormStepProps {
 }
 
 export interface AdditionalInfoStepProps extends FormStepProps {
-  nextStep: (current: FormStep) => void;
   prevStep: (current: FormStep) => void;
+  isLoading: boolean;
 }

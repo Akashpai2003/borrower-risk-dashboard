@@ -15,12 +15,12 @@ const Dashboard = () => {
 
   return (
     <div className="container mx-auto py-4 space-y-6">
-      <div className="flex justify-between items-center p-6 rounded-lg shadow-lg text-white mb-8 bg-fintech-800">
+      <div className="flex justify-between items-center p-6 rounded-xl shadow-lg text-white mb-8 bg-fintech-800">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Loan Officer Dashboard</h1>
-          <p className="text-gray-200">Monitor and analyze loan applications</p>
+          <h1 className="text-3xl font-bold tracking-tight text-white">Loan Officer Dashboard</h1>
+          <p className="text-gray-100">Monitor and analyze loan applications</p>
         </div>
-        <Button asChild className="bg-white text-fintech-800 hover:bg-gray-100 rounded-md">
+        <Button asChild className="bg-white text-fintech-800 hover:bg-gray-100 rounded-xl">
           <Link to="/form">New Application</Link>
         </Button>
       </div>
@@ -32,7 +32,7 @@ const Dashboard = () => {
         <Button 
           onClick={toggleChatbot} 
           size="icon" 
-          className={`h-12 w-12 rounded-md shadow-lg ${showChatbot ? 'bg-red-500 hover:bg-red-600' : 'bg-fintech-600 hover:bg-fintech-700'}`}
+          className={`h-12 w-12 rounded-xl shadow-lg ${showChatbot ? 'bg-red-500 hover:bg-red-600' : 'bg-fintech-600 hover:bg-fintech-700'}`}
         >
           {showChatbot ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
         </Button>
@@ -40,7 +40,7 @@ const Dashboard = () => {
       
       {/* Chatbot Popup */}
       {showChatbot && (
-        <div className="fixed bottom-20 right-6 w-96 h-[500px] z-40 rounded-md overflow-hidden shadow-2xl border border-gray-300 bg-white dark:bg-gray-800">
+        <div className="fixed bottom-20 right-6 w-96 h-[500px] z-40 rounded-xl overflow-hidden shadow-2xl border border-gray-300 bg-white dark:bg-gray-800">
           <div className="h-full">
             <LoanChatbot popup={true} />
           </div>

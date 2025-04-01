@@ -3,10 +3,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { LoanProvider } from "@/context/LoanContext";
 import { createElement, useEffect } from "react"; // Add explicit React import
 
+import Login from "./pages/Login";
 import Index from "./pages/Index";
 import Form from "./pages/Form";
 import Dashboard from "./pages/Dashboard";
@@ -14,6 +15,7 @@ import NotFound from "./pages/NotFound";
 import Navigation from "./components/Navigation";
 import LoanCalculator from "./pages/LoanCalculator";
 import Chatbot from "./pages/Chatbot";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 // Create QueryClient inside the component to ensure proper React context
 const App = () => {
@@ -43,8 +45,16 @@ const App = () => {
               <div className="pt-4">
                 <Routes>
                   <Route path="/" element={<Index />} />
+                  <Route path="/login" element={<Login />} />
                   <Route path="/form" element={<Form />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route 
+                    path="/dashboard" 
+                    element={
+                      <ProtectedRoute allowedRole="officer">
+                        <Dashboard />
+                      </ProtectedRoute>
+                    } 
+                  />
                   <Route path="/calculator" element={<LoanCalculator />} />
                   <Route path="/chatbot" element={<Chatbot />} />
                   <Route path="*" element={<NotFound />} />

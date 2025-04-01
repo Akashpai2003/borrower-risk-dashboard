@@ -112,10 +112,10 @@ const LoanDashboard = () => {
         <LoanStatsCards loans={loans} />
       </div>
 
-      <Card className="border-gray-300 shadow-md">
+      <Card className="border-gray-300 shadow-md rounded-xl overflow-hidden">
         <CardHeader className="bg-fintech-800 text-white pb-4">
           <CardTitle className="text-white">Loan Applications</CardTitle>
-          <CardDescription className="text-gray-200">
+          <CardDescription className="text-gray-100">
             Review and manage all borrower applications
           </CardDescription>
         </CardHeader>
@@ -126,7 +126,7 @@ const LoanDashboard = () => {
                 placeholder="Search by Loan ID..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="border-gray-300 bg-white text-gray-800"
+                className="border-gray-300 bg-white text-gray-800 rounded-lg"
               />
             </div>
             <div className="w-full md:w-48">
@@ -134,29 +134,29 @@ const LoanDashboard = () => {
                 value={riskFilter}
                 onValueChange={setRiskFilter}
               >
-                <SelectTrigger className="border-gray-300 bg-white">
+                <SelectTrigger className="border-gray-300 bg-white rounded-lg">
                   <SelectValue placeholder="Filter by Risk" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Risk Levels</SelectItem>
-                  <SelectItem value="low" className="text-risk-low">Low Risk</SelectItem>
-                  <SelectItem value="medium" className="text-risk-medium">Medium Risk</SelectItem>
-                  <SelectItem value="high" className="text-risk-high">High Risk</SelectItem>
-                  <SelectItem value="critical" className="text-risk-critical">Critical Risk</SelectItem>
+                  <SelectItem value="low" className="text-green-600">Low Risk</SelectItem>
+                  <SelectItem value="medium" className="text-yellow-600">Medium Risk</SelectItem>
+                  <SelectItem value="high" className="text-orange-600">High Risk</SelectItem>
+                  <SelectItem value="critical" className="text-red-600">Critical Risk</SelectItem>
                 </SelectContent>
               </Select>
             </div>
           </div>
 
           <Tabs defaultValue="all" className="mt-4">
-            <TabsList className="mb-4 bg-fintech-700 p-1">
-              <TabsTrigger value="all" className="data-[state=active]:bg-fintech-900 text-white">All Applications</TabsTrigger>
-              <TabsTrigger value="recent" className="data-[state=active]:bg-fintech-900 text-white">Recent</TabsTrigger>
-              <TabsTrigger value="high-risk" className="data-[state=active]:bg-fintech-900 text-white">High Risk</TabsTrigger>
+            <TabsList className="mb-4 bg-fintech-700 p-1 rounded-lg">
+              <TabsTrigger value="all" className="data-[state=active]:bg-fintech-900 text-white rounded-md">All Applications</TabsTrigger>
+              <TabsTrigger value="recent" className="data-[state=active]:bg-fintech-900 text-white rounded-md">Recent</TabsTrigger>
+              <TabsTrigger value="high-risk" className="data-[state=active]:bg-fintech-900 text-white rounded-md">High Risk</TabsTrigger>
             </TabsList>
             
             <TabsContent value="all">
-              <div className="border rounded-md overflow-auto border-gray-300 bg-white">
+              <div className="border rounded-xl overflow-auto border-gray-300 bg-white">
                 <Table>
                   <TableCaption>List of all loan applications</TableCaption>
                   <TableHeader className="bg-fintech-800 text-white">
@@ -192,18 +192,18 @@ const LoanDashboard = () => {
                       sortedLoans.map((loan) => (
                         <TableRow key={loan.id} className="hover:bg-gray-50">
                           <TableCell className="font-medium">{loan.loanId}</TableCell>
-                          <TableCell className="flex items-center">
+                          <TableCell className="flex items-center justify-center">
                             <IndianRupee className="h-3.5 w-3.5 mr-1 text-fintech-600" />
                             {formatCurrency(loan.loanAmount).replace('₹', '')}
                           </TableCell>
-                          <TableCell>{loan.creditScore}</TableCell>
-                          <TableCell>{loan.loanPurpose}</TableCell>
-                          <TableCell>
-                            <div className={`risk-score-highlight text-xl font-bold ${getRiskScoreClass(loan.riskLevel as RiskLevel)}`}>
+                          <TableCell className="text-center">{loan.creditScore}</TableCell>
+                          <TableCell className="text-center">{loan.loanPurpose}</TableCell>
+                          <TableCell className="text-center">
+                            <div className={`risk-score-highlight text-xl font-bold mx-auto ${getRiskScoreClass(loan.riskLevel as RiskLevel)}`}>
                               {loan.riskScore}
                             </div>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="text-center">
                             <Badge 
                               variant={getRiskBadgeVariant(loan.riskLevel as RiskLevel)}
                               className={`${getRiskBadgeColor(loan.riskLevel as RiskLevel)}`}
@@ -211,9 +211,9 @@ const LoanDashboard = () => {
                               {loan.riskLevel}
                             </Badge>
                           </TableCell>
-                          <TableCell>{formatDate(loan.submissionDate)}</TableCell>
+                          <TableCell className="text-center">{formatDate(loan.submissionDate)}</TableCell>
                           <TableCell className="text-right">
-                            <Button variant="outline" size="sm" className="border-fintech-600 hover:bg-fintech-50 rounded-md">View</Button>
+                            <Button variant="outline" size="sm" className="border-fintech-600 hover:bg-fintech-50 rounded-lg">View</Button>
                           </TableCell>
                         </TableRow>
                       ))
@@ -225,7 +225,7 @@ const LoanDashboard = () => {
             
             
             <TabsContent value="recent">
-              <div className="border rounded-md overflow-auto border-gray-300 bg-white">
+              <div className="border rounded-xl overflow-auto border-gray-300 bg-white">
                 <Table>
                   <TableCaption>Applications from the last 7 days</TableCaption>
                   <TableHeader className="bg-fintech-800 text-white">
@@ -250,18 +250,18 @@ const LoanDashboard = () => {
                       .map((loan) => (
                         <TableRow key={loan.id} className="hover:bg-gray-50">
                           <TableCell className="font-medium">{loan.loanId}</TableCell>
-                          <TableCell className="flex items-center">
+                          <TableCell className="flex items-center justify-center">
                             <IndianRupee className="h-3.5 w-3.5 mr-1 text-fintech-600" />
                             {formatCurrency(loan.loanAmount).replace('₹', '')}
                           </TableCell>
-                          <TableCell>{loan.creditScore}</TableCell>
-                          <TableCell>{loan.loanPurpose}</TableCell>
-                          <TableCell>
-                            <div className={`risk-score-highlight text-xl font-bold ${getRiskScoreClass(loan.riskLevel as RiskLevel)}`}>
+                          <TableCell className="text-center">{loan.creditScore}</TableCell>
+                          <TableCell className="text-center">{loan.loanPurpose}</TableCell>
+                          <TableCell className="text-center">
+                            <div className={`risk-score-highlight text-xl font-bold mx-auto ${getRiskScoreClass(loan.riskLevel as RiskLevel)}`}>
                               {loan.riskScore}
                             </div>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="text-center">
                             <Badge 
                               variant={getRiskBadgeVariant(loan.riskLevel as RiskLevel)}
                               className={`${getRiskBadgeColor(loan.riskLevel as RiskLevel)}`}
@@ -269,9 +269,9 @@ const LoanDashboard = () => {
                               {loan.riskLevel}
                             </Badge>
                           </TableCell>
-                          <TableCell>{formatDate(loan.submissionDate)}</TableCell>
+                          <TableCell className="text-center">{formatDate(loan.submissionDate)}</TableCell>
                           <TableCell className="text-right">
-                            <Button variant="outline" size="sm" className="border-fintech-600 hover:bg-fintech-50 rounded-md">View</Button>
+                            <Button variant="outline" size="sm" className="border-fintech-600 hover:bg-fintech-50 rounded-lg">View</Button>
                           </TableCell>
                         </TableRow>
                       ))}
@@ -282,7 +282,7 @@ const LoanDashboard = () => {
             
             
             <TabsContent value="high-risk">
-              <div className="border rounded-md overflow-auto border-gray-300 bg-white">
+              <div className="border rounded-xl overflow-auto border-gray-300 bg-white">
                 <Table>
                   <TableCaption>High and critical risk applications</TableCaption>
                   <TableHeader className="bg-fintech-800 text-white">
@@ -303,18 +303,18 @@ const LoanDashboard = () => {
                       .map((loan) => (
                         <TableRow key={loan.id} className="hover:bg-gray-50">
                           <TableCell className="font-medium">{loan.loanId}</TableCell>
-                          <TableCell className="flex items-center">
+                          <TableCell className="flex items-center justify-center">
                             <IndianRupee className="h-3.5 w-3.5 mr-1 text-fintech-600" />
                             {formatCurrency(loan.loanAmount).replace('₹', '')}
                           </TableCell>
-                          <TableCell>{loan.creditScore}</TableCell>
-                          <TableCell>{loan.loanPurpose}</TableCell>
-                          <TableCell>
-                            <div className={`risk-score-highlight text-xl font-bold ${getRiskScoreClass(loan.riskLevel as RiskLevel)}`}>
+                          <TableCell className="text-center">{loan.creditScore}</TableCell>
+                          <TableCell className="text-center">{loan.loanPurpose}</TableCell>
+                          <TableCell className="text-center">
+                            <div className={`risk-score-highlight text-xl font-bold mx-auto ${getRiskScoreClass(loan.riskLevel as RiskLevel)}`}>
                               {loan.riskScore}
                             </div>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="text-center">
                             <Badge 
                               variant={getRiskBadgeVariant(loan.riskLevel as RiskLevel)}
                               className={`${getRiskBadgeColor(loan.riskLevel as RiskLevel)}`}
@@ -322,9 +322,9 @@ const LoanDashboard = () => {
                               {loan.riskLevel}
                             </Badge>
                           </TableCell>
-                          <TableCell>{formatDate(loan.submissionDate)}</TableCell>
+                          <TableCell className="text-center">{formatDate(loan.submissionDate)}</TableCell>
                           <TableCell className="text-right">
-                            <Button variant="outline" size="sm" className="border-fintech-600 hover:bg-fintech-50 rounded-md">View</Button>
+                            <Button variant="outline" size="sm" className="border-fintech-600 hover:bg-fintech-50 rounded-lg">View</Button>
                           </TableCell>
                         </TableRow>
                       ))}

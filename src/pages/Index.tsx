@@ -6,9 +6,9 @@ const Index = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Redirect to the form page after a short delay
+    // Redirect to the login page after a short delay
     const timer = setTimeout(() => {
-      navigate("/form");
+      navigate("/login");
     }, 1500);
     
     return () => clearTimeout(timer);

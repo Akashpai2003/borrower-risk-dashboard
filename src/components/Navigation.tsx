@@ -1,21 +1,21 @@
 
 import { Link, useLocation } from 'react-router-dom';
-import { HomeIcon, FileTextIcon, BarChartIcon, CalculatorIcon, MoonIcon, SunIcon } from 'lucide-react';
+import { HomeIcon, FileTextIcon, LayoutDashboard, CalculatorIcon, MoonIcon, SunIcon, LogOut } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
+import { useToast } from "@/components/ui/use-toast";
 
 const Navigation = () => {
   const location = useLocation();
   const [darkMode, setDarkMode] = useState(false);
-  
-  const navigation = [
-    { name: 'Home', href: '/', icon: HomeIcon },
-    { name: 'New Application', href: '/form', icon: FileTextIcon },
-    { name: 'Dashboard', href: '/dashboard', icon: BarChartIcon },
-    { name: 'Loan Calculator', href: '/calculator', icon: CalculatorIcon },
-  ];
+  const [userRole, setUserRole] = useState<string | null>(null);
+  const { toast } = useToast();
   
   useEffect(() => {
+    // Get user role from localStorage
+    const role = localStorage.getItem('userRole');
+    setUserRole(role);
+    
     // Check if user has a dark mode preference
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
     setDarkMode(isDarkMode);
@@ -25,7 +25,7 @@ const Navigation = () => {
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, []);
+  }, [location.pathname]);
   
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode;
@@ -38,6 +38,31 @@ const Navigation = () => {
       document.documentElement.classList.remove('dark');
     }
   };
+  
+  const handleLogout = () => {
+    localStorage.removeItem('userRole');
+    setUserRole(null);
+    toast({
+      title: "Logged out",
+      description: "You have been successfully logged out",
+    });
+  };
+
+  const officerNavigation = [
+    { name: 'Home', href: '/', icon: HomeIcon },
+    { name: 'New Application', href: '/form', icon: FileTextIcon },
+    { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
+    { name: 'Loan Calculator', href: '/calculator', icon: CalculatorIcon },
+  ];
+  
+  const customerNavigation = [
+    { name: 'Home', href: '/', icon: HomeIcon },
+    { name: 'Apply for Loan', href: '/form', icon: FileTextIcon },
+    { name: 'Loan Calculator', href: '/calculator', icon: CalculatorIcon },
+  ];
+  
+  // Determine which navigation to show based on user role
+  const navigation = userRole === 'officer' ? officerNavigation : customerNavigation;
 
   return (
     <div className="bg-white dark:bg-gray-900 shadow-md">
@@ -63,6 +88,20 @@ const Navigation = () => {
                 <span className="hidden md:inline">{item.name}</span>
               </Link>
             ))}
+            
+            {userRole && (
+              <Button 
+                onClick={handleLogout} 
+                variant="ghost" 
+                size="icon"
+                className="rounded-md ml-2 w-8 h-8"
+                asChild
+              >
+                <Link to="/login">
+                  <LogOut className="h-4 w-4 text-gray-600 dark:text-gray-300" />
+                </Link>
+              </Button>
+            )}
             
             <Button 
               onClick={toggleDarkMode} 
