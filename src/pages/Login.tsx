@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Bank, User } from "lucide-react";
+import { User, Wallet } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const Login = () => {
@@ -69,7 +69,7 @@ const Login = () => {
               }`}
               onClick={() => setSelectedRole("officer")}
             >
-              <Bank size={32} className={selectedRole === "officer" ? "text-fintech-600" : "text-gray-500"} />
+              <Wallet size={32} className={selectedRole === "officer" ? "text-fintech-600" : "text-gray-500"} />
               <span className={selectedRole === "officer" ? "font-medium text-fintech-800" : "text-gray-700"}>
                 Bank Officer
               </span>
