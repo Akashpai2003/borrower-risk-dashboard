@@ -15,12 +15,12 @@ const Dashboard = () => {
 
   return (
     <div className="container mx-auto py-4 space-y-6">
-      <div className="flex justify-between items-center p-6 rounded-lg shadow-lg text-white mb-8 glassmorphism bg-gradient-to-r from-fintech-700 to-fintech-900">
+      <div className="flex justify-between items-center p-6 rounded-lg shadow-lg text-white mb-8 bg-fintech-800">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Loan Officer Dashboard</h1>
-          <p className="text-fintech-100">Monitor and analyze loan applications</p>
+          <p className="text-gray-200">Monitor and analyze loan applications</p>
         </div>
-        <Button asChild className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm border border-white/10 rounded-md">
+        <Button asChild className="bg-white text-fintech-800 hover:bg-gray-100 rounded-md">
           <Link to="/form">New Application</Link>
         </Button>
       </div>
@@ -32,7 +32,7 @@ const Dashboard = () => {
         <Button 
           onClick={toggleChatbot} 
           size="icon" 
-          className={`h-12 w-12 rounded-full shadow-lg ${showChatbot ? 'bg-red-500 hover:bg-red-600' : 'bg-fintech-600 hover:bg-fintech-700'}`}
+          className={`h-12 w-12 rounded-md shadow-lg ${showChatbot ? 'bg-red-500 hover:bg-red-600' : 'bg-fintech-600 hover:bg-fintech-700'}`}
         >
           {showChatbot ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
         </Button>
@@ -40,7 +40,7 @@ const Dashboard = () => {
       
       {/* Chatbot Popup */}
       {showChatbot && (
-        <div className="fixed bottom-20 right-6 w-96 h-[500px] z-40 rounded-lg overflow-hidden shadow-2xl border border-fintech-200 glassmorphism">
+        <div className="fixed bottom-20 right-6 w-96 h-[500px] z-40 rounded-md overflow-hidden shadow-2xl border border-gray-300 bg-white dark:bg-gray-800">
           <div className="h-full">
             <LoanChatbot popup={true} />
           </div>

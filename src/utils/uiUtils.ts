@@ -19,14 +19,14 @@ export const getRiskBadgeVariant = (riskLevel: RiskLevel): "default" | "secondar
 export const getRiskBadgeColor = (riskLevel: RiskLevel): string => {
   switch (riskLevel) {
     case "Low":
-      return "bg-risk-low/10 text-risk-low border-risk-low";
+      return "bg-green-100 text-green-700 border-green-500";
     case "Medium":
-      return "bg-risk-medium/10 text-risk-medium border-risk-medium";
+      return "bg-yellow-100 text-yellow-700 border-yellow-500";
     case "High":
-      return "bg-risk-high/10 text-risk-high border-risk-high";
+      return "bg-orange-100 text-orange-700 border-orange-500";
     case "Critical":
-      return "bg-risk-critical/10 text-risk-critical border-risk-critical";
+      return "bg-red-100 text-red-700 border-red-500";
     default:
-      return "bg-risk-low/10 text-risk-low border-risk-low";
+      return "bg-green-100 text-green-700 border-green-500";
   }
 };

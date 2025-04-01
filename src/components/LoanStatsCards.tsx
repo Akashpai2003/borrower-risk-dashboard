@@ -40,10 +40,10 @@ const LoanStatsCards = ({ loans }: LoanStatsCardsProps) => {
 
   return (
     <>
-      <Card className="border-fintech-200 shadow-md hover:shadow-lg transition-shadow duration-300 bg-gradient-to-br from-white to-fintech-50">
+      <Card className="border-gray-300 shadow-md bg-white">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium text-fintech-800">Total Loan Applications</CardTitle>
-          <BarChart3 className="h-4 w-4 text-fintech-500" />
+          <BarChart3 className="h-4 w-4 text-fintech-600" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold text-fintech-900">{loans.length}</div>
@@ -53,10 +53,10 @@ const LoanStatsCards = ({ loans }: LoanStatsCardsProps) => {
         </CardContent>
       </Card>
       
-      <Card className="border-fintech-200 shadow-md hover:shadow-lg transition-shadow duration-300 bg-gradient-to-br from-white to-fintech-50">
+      <Card className="border-gray-300 shadow-md bg-white">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium text-fintech-800">Total Loan Amount</CardTitle>
-          <IndianRupee className="h-4 w-4 text-fintech-500" />
+          <IndianRupee className="h-4 w-4 text-fintech-600" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold text-fintech-900 flex items-center">
@@ -69,10 +69,10 @@ const LoanStatsCards = ({ loans }: LoanStatsCardsProps) => {
         </CardContent>
       </Card>
       
-      <Card className="border-fintech-200 shadow-md hover:shadow-lg transition-shadow duration-300 bg-gradient-to-br from-white to-fintech-50">
+      <Card className="border-gray-300 shadow-md bg-white">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium text-fintech-800">Average Risk Score</CardTitle>
-          <BarChart3 className="h-4 w-4 text-fintech-500" />
+          <BarChart3 className="h-4 w-4 text-fintech-600" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold text-fintech-900">{averageRiskScore}</div>
@@ -82,7 +82,7 @@ const LoanStatsCards = ({ loans }: LoanStatsCardsProps) => {
         </CardContent>
       </Card>
       
-      <Card className="border-fintech-200 shadow-md hover:shadow-lg transition-shadow duration-300 bg-gradient-to-br from-white to-fintech-50">
+      <Card className="border-gray-300 shadow-md bg-white">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium text-fintech-800">High Risk Applications</CardTitle>
           {isIncreasing ? (

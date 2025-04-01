@@ -95,34 +95,34 @@
   }
   
   .glass-card {
-    @apply bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-700 shadow-lg;
+    @apply bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 shadow-lg;
   }
   
   .gradient-bg-light {
-    @apply bg-gradient-to-r from-fintech-50 to-blue-50;
+    @apply bg-white;
   }
   
   .gradient-bg-dark {
-    @apply bg-gradient-to-r from-gray-900 to-fintech-950;
+    @apply bg-gray-900;
   }
   
   .risk-score-highlight {
-    @apply flex items-center justify-center w-20 h-20 rounded-lg text-2xl font-bold shadow-lg;
+    @apply flex items-center justify-center w-24 h-24 rounded-md text-3xl font-bold shadow-md border-2;
   }
   
   .risk-score-low {
-    @apply bg-risk-low text-white;
+    @apply bg-green-100 text-green-700 border-green-500;
   }
   
   .risk-score-medium {
-    @apply bg-risk-medium text-white;
+    @apply bg-yellow-100 text-yellow-700 border-yellow-500;
   }
   
   .risk-score-high {
-    @apply bg-risk-high text-white;
+    @apply bg-orange-100 text-orange-700 border-orange-500;
   }
   
   .risk-score-critical {
-    @apply bg-risk-critical text-white;
+    @apply bg-red-100 text-red-700 border-red-500;
   }
 }
