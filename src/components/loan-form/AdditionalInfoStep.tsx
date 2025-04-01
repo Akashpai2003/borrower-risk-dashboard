@@ -5,17 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, IndianRupee } from "lucide-react";
-
-interface AdditionalInfoStepProps {
-  formData: any;
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  prevStep: (current: string) => void;
-  isLoading: boolean;
-}
+import { AdditionalInfoStepProps } from "./types";
 
 const AdditionalInfoStep = ({ 
   formData, 
-  handleInputChange, 
+  handleInputChange,
+  handleSelectChange,
+  handleSwitchChange,
   prevStep,
   isLoading
 }: AdditionalInfoStepProps) => {

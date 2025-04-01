@@ -23,6 +23,7 @@ export interface PersonalInfoStepProps {
   formData: Omit<LoanApplication, 'id' | 'riskScore' | 'riskLevel' | 'submissionDate'>;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   handleSelectChange: (name: string, value: string) => void;
+  handleSwitchChange: (name: string, checked: boolean) => void;
   nextStep: (current: FormStep) => void;
 }
 
@@ -47,6 +48,8 @@ export interface LoanDetailsStepProps {
 export interface AdditionalInfoStepProps {
   formData: Omit<LoanApplication, 'id' | 'riskScore' | 'riskLevel' | 'submissionDate'>;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  handleSelectChange: (name: string, value: string) => void;
+  handleSwitchChange: (name: string, checked: boolean) => void;
   prevStep: (current: FormStep) => void;
   isLoading: boolean;
 }
